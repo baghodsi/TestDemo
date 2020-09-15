@@ -2,6 +2,8 @@ package com.example.myDemo.user;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,11 +27,23 @@ public class UserController {
 	public List<User> getAllUsers() {
 		return userManagementService.findAll();
 	}
-	// Get a user by Id
+	// // Get a user by Id
 	@GetMapping("/users/{id}")
 	public User getUser(@PathVariable long id) {
 		try{
 			User resultUser = userManagementService.findById(id);
+			return resultUser;
+		}
+		catch(Exception e){
+			e.getMessage();
+			return null;
+		}
+	}
+	// Get a user by Id
+	@GetMapping("/users/authenticate/{userName}")
+	public User getUser(@PathVariable String userName) {//, String password) {
+		try{
+			User resultUser = userManagementService.findByUserName(userName);
 			return resultUser;
 		}
 		catch(Exception e){
