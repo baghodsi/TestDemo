@@ -5,6 +5,8 @@ public class User {
 	private Long id;
 	private String firstName;
 	private String lastName;
+	private String userName;
+	private String password;
 	private String email;
 	private String mobile;
 	private String city;
@@ -17,12 +19,14 @@ public class User {
 	public User() {
 	}
 	// Constructor with complet argument
-    public User(long id, String firstName, String lastName, String email, String mobile, String city, 
+    public User(long id, String firstName, String lastName, String userName, String password, String email, String mobile, String city, 
                 String gender, String department, String hireDate, String description) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
 		this.email = email;
 		this.mobile = mobile;
 		this.city = city;
@@ -54,6 +58,22 @@ public class User {
 	// Set user lastName
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	// Get user username
+    public String getUserName() {
+		return userName;
+	}
+	// Set user username
+	public void setUserName(String username) {
+		this.userName = username;
+	}
+	// Get user password
+    public String getPassword() {
+		return password;
+	}
+	// Set user password
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	// Get user email
     public String getEmail() {
